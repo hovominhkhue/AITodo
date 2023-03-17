@@ -16,7 +16,7 @@ const TodoList = ({ todos, deleteTodo }) => {
         <div key={todo.id} className="flex justify-between items-center py-2 px-6 border-b border-gray-200">
           
           <div className="text-gray-500 w-12">{todo.id}</div>
-          <div className="flex-1 ml-2" style={{marginLeft: 'calc(5px + 2rem)'}}>
+          <div className={`flex-1 ml-2 ${isCheckedMap[todo.id] ? "line-through" : ""}`} style={{marginLeft: 'calc(5px + 2rem)'}}>
             {todo.text}
           </div>
 
