@@ -22,6 +22,36 @@ const TodoPage = () => {
       });
     });
   };
+
+  const editTodo = (id, newText) => {
+    setTodos((prevTodos) => {
+      return prevTodos.map((todo) => {
+        if (todo.id === id) {
+          return {
+            ...todo,
+            text: newText,
+          };
+        } else {
+          return todo;
+        }
+      });
+    });
+  };
+
+  const updateTodo = (id, newText) => {
+    setTodos((prevTodos) => {
+      return prevTodos.map((todo) => {
+        if (todo.id === id) {
+          return {
+            ...todo,
+            text: newText,
+          };
+        } else {
+          return todo;
+        }
+      });
+    });
+  };
   
 
   return (
@@ -53,9 +83,10 @@ const TodoPage = () => {
         </div>
         <div className="my-3 py-2 bg-gray-50 flex justify-between border-2 border-black-600">
           <div className="w-1/6 pl-6 text-gray-400 font-semibold">ID</div>
-          <div className="w-5/6 text-gray-400 font-semibold">TITLE</div>
+          <div className="w-4/6 text-gray-400 font-semibold">TITLE</div>
+          <div className="w-1/6 text-gray-400 font-semibold">ACTION</div>
         </div>
-        <TodoList todos={todos} deleteTodo={deleteTodo} />
+        <TodoList todos={todos} deleteTodo={deleteTodo} editTodo={editTodo} updateTodo={updateTodo} />
       </div>
     </div>
   );
